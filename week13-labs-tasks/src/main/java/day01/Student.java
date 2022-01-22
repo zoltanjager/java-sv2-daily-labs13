@@ -1,6 +1,6 @@
 package day01;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
     private int studentId;
     private String name;
 
@@ -19,6 +19,6 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student o) {
-        return studentId-o.studentId;
+        return studentId - o.studentId;
     }
 }
