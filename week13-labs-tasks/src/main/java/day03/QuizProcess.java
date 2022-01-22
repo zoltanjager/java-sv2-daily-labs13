@@ -21,7 +21,7 @@ public class QuizProcess {
                 String[] part = line.split(" ");
                 String applicant = part[0];
                 String answer = part[1];
-//                if (results.keySet().contains(applicant)) {
+
                 if (results.containsKey(applicant)) {
                     results.put(applicant, results.get(applicant) + answer);
                 } else {
