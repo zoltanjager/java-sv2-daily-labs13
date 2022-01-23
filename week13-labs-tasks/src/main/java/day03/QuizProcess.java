@@ -22,15 +22,19 @@ public class QuizProcess {
                 String applicant = part[0];
                 String answer = part[1];
 
-                if (results.containsKey(applicant)) {
-                    results.put(applicant, results.get(applicant) + answer);
-                } else {
-                    results.put(applicant, answer);
-                }
+
+                results.compute(applicant, (k, v) -> (v==null) ? answer : v + answer);
+//                if (results.containsKey(applicant)) {
+//                    results.put(applicant, results.get(applicant) + answer);
+//                } else {
+//                    results.put(applicant, answer);
+//                }
             }
+
         } catch (IOException e) {
             throw new IllegalStateException("Cannot open the file", e);
         }
+//        System.out.println(results);
     }
 
     public boolean isRightAnswer(String applicant, int questionNumber) {
@@ -62,6 +66,7 @@ public class QuizProcess {
                 winner = actual.getKey();
             }
         }
+//        System.out.println(pointsMap);
         return winner;
     }
 
